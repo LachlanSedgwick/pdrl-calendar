@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDRL World Cup 2026 Calendar</title>
+<meta property="og:title" content="PDRL World Cup 2026 Calendar">
+<meta property="og:description" content="Tap to add the full team itinerary to your phone calendar. Updates automatically.">
+<style>
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0b2545;color:#fff;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+  .card{max-width:420px;width:100%;text-align:center}
+  h1{font-size:1.6rem;margin:0 0 8px}
+  p{opacity:.85;line-height:1.45;margin:0 0 24px}
+  a.btn{display:block;padding:16px;margin:0 0 12px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1.05rem}
+  .primary{background:#ffc300;color:#0b2545}
+  .secondary{background:rgba(255,255,255,.12);color:#fff}
+  small{display:block;opacity:.6;margin-top:16px;line-height:1.4}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>PDRL World Cup 2026</h1>
+  <p>Add the full team itinerary to your calendar. Any time changes will update on your phone automatically.</p>
+  <a class="btn primary" id="apple" href="webcal://gist.githubusercontent.com/LachlanSedgwick/964e2875702294f01a1b043185852c97/raw/pdrl-world-cup-2026.ics">iPhone / Apple Calendar</a>
+  <a class="btn secondary" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fgist.githubusercontent.com%2FLachlanSedgwick%2F964e2875702294f01a1b043185852c97%2Fraw%2Fpdrl-world-cup-2026.ics">Google Calendar / Android</a>
+  <a class="btn secondary" href="https://outlook.office.com/calendar/addfromweb?url=https%3A%2F%2Fgist.githubusercontent.com%2FLachlanSedgwick%2F964e2875702294f01a1b043185852c97%2Fraw%2Fpdrl-world-cup-2026.ics&name=PDRL%20World%20Cup%202026">Outlook</a>
+  <small>On iPhone, tap Subscribe when asked. If nothing happens, open this page in Safari.</small>
+</div>
+<script>
+  // iPhone, iPad and Mac go straight to the Subscribe prompt
+  if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) {
+    location.href = document.getElementById('apple').href;
+  }
+</script>
+</body>
+</html>

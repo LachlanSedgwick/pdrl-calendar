@@ -15,6 +15,7 @@
   .primary{background:#ffc300;color:#0b2545}
   .secondary{background:rgba(255,255,255,.12);color:#fff}
   small{display:block;opacity:.6;margin-top:16px;line-height:1.4}
+  #ics{width:100%;box-sizing:border-box;padding:12px;border-radius:10px;border:0;font-size:.8rem;margin:0 0 12px;color:#0b2545}
 </style>
 </head>
 <body>
@@ -25,10 +26,25 @@
   <a class="btn secondary" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fgist.githubusercontent.com%2FLachlanSedgwick%2F964e2875702294f01a1b043185852c97%2Fraw%2Fpdrl-world-cup-2026.ics">Google Calendar / Android</a>
   <a class="btn secondary" href="https://outlook.office.com/calendar/addfromweb?url=https%3A%2F%2Fgist.githubusercontent.com%2FLachlanSedgwick%2F964e2875702294f01a1b043185852c97%2Fraw%2Fpdrl-world-cup-2026.ics&name=PDRL%20World%20Cup%202026">Outlook</a>
   <small>On iPhone, tap Subscribe when asked. If nothing happens, open this page in Safari.</small>
+  <div class="copy">
+    <p style="margin:24px 0 8px">Or copy this link into your calendar's "Add subscription calendar" or "Subscribe from web" option:</p>
+    <input id="ics" readonly value="https://gist.githubusercontent.com/LachlanSedgwick/964e2875702294f01a1b043185852c97/raw/pdrl-world-cup-2026.ics" onclick="this.select()">
+    <a class="btn secondary" href="#" id="copybtn">Copy calendar link</a>
+  </div>
 </div>
 <script>
-  // iPhone, iPad and Mac go straight to the Subscribe prompt
-  if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) {
+  document.getElementById('copybtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    var box = document.getElementById('ics'), btn = this;
+    box.select();
+    var done = function () { btn.textContent = 'Copied!'; };
+    if (navigator.clipboard) { navigator.clipboard.writeText(box.value).then(done, function () { document.execCommand('copy'); done(); }); }
+    else { document.execCommand('copy'); done(); }
+  });
+  // iPhone, iPad and Mac go straight to the Subscribe prompt (once only, so the page stays usable after)
+  var tried = false;
+  try { tried = sessionStorage.getItem('tried') === '1'; sessionStorage.setItem('tried', '1'); } catch (e) {}
+  if (!tried && /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) {
     location.href = document.getElementById('apple').href;
   }
 </script>
